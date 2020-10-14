@@ -138,26 +138,21 @@ public class CustomerController {
             UserAccount user = userService.findByEmail(authentication.getName());
 
             Question b = new Question();
+            CategoryInfo c = new CategoryInfo();
 
-//            for (CategoryInfo categoryInfo : info.getCategories()){
-//                categoryRepository.save(categoryInfo);
-//                b.getCategories().add(categoryInfo);
-//            }
-        CategoryInfo old;
 
-        for(CategoryInfo categoryInfo: info.getCategories()) {
-            try {
-                old = categoryRepository.findByCategory(categoryInfo.getCategory()).get();
-            } catch (Exception e) {
+            for (CategoryInfo categoryInfo : info.getCategories()){
                 categoryRepository.save(categoryInfo);
-                b.getCategories().add(categoryInfo);
-            }
-        }
+           }
+
             b.setQuestion_text(info.getQuestion_text());
             b.setUserId(user.getId());
             b.setCreated_timestamp(new Timestamp(System.currentTimeMillis()).toString());
             b.setUpdated_timestamp(new Timestamp(System.currentTimeMillis()).toString());
             b.setAnswers(null);
+            categoryRepository.save(c);
+            b.setCategories(info.getCategories());
+
             questionRepository.save(b);
 
 
@@ -214,9 +209,14 @@ public class CustomerController {
         if(authentication.getName().equals("anonymousUser")) return new ResponseEntity(HttpStatus.valueOf(401));
         UserAccount user=userService.findByEmail(authentication.getName());
         Question question;
+        AnswerInfo answer;
         try {
             question = questionRepository.findById(id).get();
             if(!question.getUserId().equals(user.getId())){
+                return new ResponseEntity(HttpStatus.NOT_FOUND);
+            }
+            if(question.getAnswers().size() != 0){
+                System.out.println("!answer==null");
                 return new ResponseEntity(HttpStatus.NOT_FOUND);
             }
         }
@@ -307,30 +307,35 @@ public class CustomerController {
 
 
         UserAccount user=userService.findByEmail(authentication.getName());
+        Question question;
+        AnswerInfo answerInfo;
+        try {
+            question = questionRepository.findById(id).get();
+            answerInfo = new AnswerInfo();
 
-
-        Question question = questionRepository.findById(id).get();
-        AnswerInfo answerInfo = new AnswerInfo();
-
-            if(!question.getUserId().equals(user.getId())){
+            if (!question.getUserId().equals(user.getId())) {
                 return new ResponseEntity(HttpStatus.NOT_FOUND);
             }
 
 
-        if (answerText.getAnswer_text()==null || answerText.getAnswer_text().equals(""))
+            if (answerText.getAnswer_text() == null || answerText.getAnswer_text().equals(""))
+                return new ResponseEntity(HttpStatus.BAD_REQUEST);
+
+            answerInfo.setCreated_timestamp(new Timestamp(System.currentTimeMillis()).toString());
+            answerInfo.setUpdated_timestamp(new Timestamp(System.currentTimeMillis()).toString());
+            answerInfo.setQuestion_id(id);
+            answerInfo.setUserid(user.getId());
+            answerInfo.setAnswer_text(answerText.getAnswer_text());
+            question.getAnswers().add(answerInfo);
+
+
+            answerRepository.save(answerInfo);
+            questionRepository.save(question);
+            return new ResponseEntity(answerInfo, HttpStatus.valueOf(201));
+        }
+        catch (Exception e){
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
-
-        answerInfo.setCreated_timestamp(new Timestamp(System.currentTimeMillis()).toString());
-        answerInfo.setUpdated_timestamp(new Timestamp(System.currentTimeMillis()).toString());
-        answerInfo.setQuestion_id(id);
-        answerInfo.setUserid(user.getId());
-        answerInfo.setAnswer_text(answerText.getAnswer_text());
-        question.getAnswers().add(answerInfo);
-
-
-        answerRepository.save(answerInfo);
-        questionRepository.save(question);
-        return new ResponseEntity(answerInfo,HttpStatus.valueOf(201));
+        }
     }
 
     @GetMapping(path="/v1/question/{questionId}/answer/{answerId}",produces = "application/json")
@@ -356,6 +361,7 @@ public class CustomerController {
         Authentication authentication =
                 SecurityContextHolder.getContext().getAuthentication();
         //System.out.println(authentication.getName());
+        
         if(authentication.getName().equals("anonymousUser")) return new ResponseEntity(HttpStatus.valueOf(401));
 
 
@@ -364,11 +370,10 @@ public class CustomerController {
             if(!question.getUserId().equals(user.getId())){
                 return new ResponseEntity(HttpStatus.valueOf(404));
             }
-
             Optional<AnswerInfo> answerInfo = answerRepository.findById(answer_id);
 
-
-            question.getAnswers().remove(answerInfo);
+            question.getAnswers().remove(answerInfo.get());
+            answerRepository.delete(answerInfo.get());
             questionRepository.save(question);
             System.out.println("answer in question deleted");
 
