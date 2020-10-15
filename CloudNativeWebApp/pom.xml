@@ -103,7 +103,14 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+			<groupId>io.takari.maven.plugins</groupId>
+			<artifactId>provisio-maven-plugin</artifactId>
+			<version>0.1.46</version>
+			<extensions>true</extensions>
+		</plugin>
 		</plugins>
+
 	</build>
 
 </project>
