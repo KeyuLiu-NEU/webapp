@@ -80,7 +80,8 @@ public class CustomerController {
     //Get User Info
     @GetMapping(path="/v1/user/self",produces = "application/json")
     public ResponseEntity getUserInfo (){
-      Authentication authentication =
+
+        Authentication authentication =
                 SecurityContextHolder.getContext().getAuthentication();
             if(authentication.getName().equals("anonymousUser")) return new ResponseEntity(HttpStatus.valueOf(401));
             System.out.println(authentication.getName());
@@ -129,7 +130,7 @@ public class CustomerController {
 
     @PostMapping(path="/v1/question",produces = "application/json") // Map ONLY POST Requests
     public ResponseEntity createBill (@RequestBody QuestionInfo info ) {
-
+        try {
             Authentication authentication =
                     SecurityContextHolder.getContext().getAuthentication();
             if (authentication.getName().equals("anonymousUser")) return new ResponseEntity(HttpStatus.valueOf(401));
@@ -141,9 +142,9 @@ public class CustomerController {
             CategoryInfo c = new CategoryInfo();
 
 
-            for (CategoryInfo categoryInfo : info.getCategories()){
+            for (CategoryInfo categoryInfo : info.getCategories()) {
                 categoryRepository.save(categoryInfo);
-           }
+            }
 
             b.setQuestion_text(info.getQuestion_text());
             b.setUserId(user.getId());
@@ -155,23 +156,32 @@ public class CustomerController {
 
             questionRepository.save(b);
 
-
-
             return new ResponseEntity<>(b, HttpStatus.CREATED);
+        }
+        catch (Exception e){
+            return new ResponseEntity(HttpStatus.valueOf(400));
+        }
+
 
     }
 
     @GetMapping(path="/v1/questions",produces = "application/json")
     public ResponseEntity getAllQuestions() {
-        Authentication authentication =
-                SecurityContextHolder.getContext().getAuthentication();
-        //System.out.println(authentication.getName());
-        //if(authentication.getName().equals("anonymousUser")) return new ResponseEntity(HttpStatus.valueOf(401));
-        UserAccount user= userService.findByEmail(authentication.getName());
-        Iterable<Question> questions=questionRepository.findAll();
-        // This returns a JSON or XML with the users
-        return new ResponseEntity(questions, HttpStatus.valueOf(200));
-    }
+        try {
+            Authentication authentication =
+                    SecurityContextHolder.getContext().getAuthentication();
+            //System.out.println(authentication.getName());
+            //if(authentication.getName().equals("anonymousUser")) return new ResponseEntity(HttpStatus.valueOf(401));
+            UserAccount user = userService.findByEmail(authentication.getName());
+            Iterable<Question> questions = questionRepository.findAll();
+            // This returns a JSON or XML with the users
+            return new ResponseEntity(questions, HttpStatus.valueOf(200));
+        }
+        catch (Exception e){
+            return new ResponseEntity(HttpStatus.valueOf(400));
+            }
+        }
+
 
     @GetMapping(path="/v1/user1/{id}",produces = "application/json")
     public ResponseEntity getUser(@RequestParam String id) {
@@ -180,25 +190,34 @@ public class CustomerController {
         //System.out.println(authentication.getName());
         //if(authentication.getName().equals("anonymousUser")) return new ResponseEntity(HttpStatus.valueOf(401));
         //UserAccount user=userService.findByEmail(authentication.getName());
-
-        UserAccount n = userRepository.findById(id).get();
-        return new ResponseEntity(new userInfo_noPwd(n.getId(),n.getFirst_name(),n.getLast_name(),n.getEmailAddress(),n.getAccount_created(),n.getAccount_updated()),HttpStatus.OK);
-    }
+        try {
+            UserAccount n = userRepository.findById(id).get();
+            return new ResponseEntity(new userInfo_noPwd(n.getId(), n.getFirst_name(), n.getLast_name(), n.getEmailAddress(), n.getAccount_created(), n.getAccount_updated()), HttpStatus.OK);
+        }
+        catch (Exception e){
+            return new ResponseEntity(HttpStatus.valueOf(400));
+        }
+        }
 
     @GetMapping(path="/v1/question/{id}",produces = "application/json")
     public ResponseEntity getQestion(@PathVariable String id, @RequestParam String question_id) {
-        Authentication authentication =
-                SecurityContextHolder.getContext().getAuthentication();
-        //System.out.println(authentication.getName());
-        //if(authentication.getName().equals("anonymousUser")) return new ResponseEntity(HttpStatus.valueOf(401));
-        UserAccount user=userService.findByEmail(authentication.getName());
+        try {
+            Authentication authentication =
+                    SecurityContextHolder.getContext().getAuthentication();
+            //System.out.println(authentication.getName());
+            //if(authentication.getName().equals("anonymousUser")) return new ResponseEntity(HttpStatus.valueOf(401));
+            UserAccount user = userService.findByEmail(authentication.getName());
 
             Optional<Question> question = questionRepository.findById(id);
-            if(!question.get().getId().equals(id)){
+            if (!question.get().getId().equals(id)) {
                 return new ResponseEntity(HttpStatus.NOT_FOUND);
             }
 
-        return new ResponseEntity(question,HttpStatus.OK);
+            return new ResponseEntity(question, HttpStatus.OK);
+        }
+        catch (Exception e){
+            return new ResponseEntity(HttpStatus.valueOf(400));
+        }
     }
 
     @DeleteMapping(path="/v1/question/{id}",produces = "application/json")
@@ -364,10 +383,10 @@ public class CustomerController {
         
         if(authentication.getName().equals("anonymousUser")) return new ResponseEntity(HttpStatus.valueOf(401));
 
-
-            UserAccount user=userService.findByEmail(authentication.getName());
-            Question question=questionRepository.findById(question_id).get();
-            if(!question.getUserId().equals(user.getId())){
+        try {
+            UserAccount user = userService.findByEmail(authentication.getName());
+            Question question = questionRepository.findById(question_id).get();
+            if (!question.getUserId().equals(user.getId())) {
                 return new ResponseEntity(HttpStatus.valueOf(404));
             }
             Optional<AnswerInfo> answerInfo = answerRepository.findById(answer_id);
@@ -379,6 +398,10 @@ public class CustomerController {
 
 
             return new ResponseEntity(HttpStatus.NO_CONTENT);
+        }
+        catch (Exception e){
+            return new ResponseEntity(HttpStatus.valueOf(400));
+        }
 
 
     }
