@@ -17,6 +17,6 @@ jobs:
       with:
         java-version: 1.8
     - name: Build with Maven
-      run: ./springbootapp/mvnw build
+      run: mvn spring-boot:run
     - name: Tests
-      run: ./springbootapp/mvnw test
+      run: mvn spring-boot:test
