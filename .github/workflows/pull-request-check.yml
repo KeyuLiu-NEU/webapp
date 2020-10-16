@@ -17,6 +17,6 @@ jobs:
       with:
         java-version: 1.8
     - name: Build with Maven
-      run: mvn spring-boot:run
+      run: ./CloudNativeWebApp/mvnw build
     - name: Tests
-      run: mvn spring-boot:test
+      run: ./CloudNativeWebApp/mvnw test
