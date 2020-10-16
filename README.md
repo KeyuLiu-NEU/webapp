@@ -9,5 +9,5 @@ Build and Deploy instructions:
 Prerequisites:
 1. Install Java
 2. Install MySql
-3. Install IntelliJ IDEA 
+3. mvn spring-boot:run
 
