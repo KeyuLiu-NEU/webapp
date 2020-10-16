@@ -9,5 +9,5 @@ Build and Deploy instructions:
 Prerequisites:
 1. Install Java
 2. Install MySql
-3. ./mvn spring-boot:run
+3. ./mvnw spring-boot:run
 
