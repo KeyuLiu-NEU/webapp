@@ -1,0 +1,17 @@
+{
+  "groups": [
+    {
+      "name": "file",
+      "type": "com.cloud.config.FileStorageProperties",
+      "sourceType": "com.cloud.config.FileStorageProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "file.upload-dir",
+      "type": "java.lang.String",
+      "sourceType": "com.cloud.config.FileStorageProperties"
+    }
+  ],
+  "hints": []
+}
