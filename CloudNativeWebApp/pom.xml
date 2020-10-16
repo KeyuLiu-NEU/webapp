@@ -8,11 +8,11 @@
 		<version>2.2.3.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.cloud</groupId>
-	<artifactId>CloudNativeWebApp</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>CloudNativeWebApp</name>
-	<description>project for cloud computing</description>
+		<groupId>com.cloud</groupId>
+		<artifactId>CloudNativeWebApp</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<name>CloudNativeWebApp</name>
+		<description>project for cloud computing</description>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -104,9 +104,9 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 			<plugin>
-			<groupId>io.takari.maven.plugins</groupId>
-			<artifactId>provisio-maven-plugin</artifactId>
-			<version>0.1.46</version>
+				<groupId>io.takari.maven.plugins</groupId>
+				<artifactId>provisio-maven-plugin</artifactId>
+				<version>0.1.46</version>
 			<extensions>true</extensions>
 		</plugin>
 		</plugins>
