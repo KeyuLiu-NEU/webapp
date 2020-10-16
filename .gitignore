@@ -19,11 +19,6 @@
 *.tar.gz
 *.rar
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-
 ## .gitignore for mac os x
 .DS_Store
-CloudNativeWebApp/mvnw.cmd
-Java.gitignore
-Maven.gitignore
+CloudNativeWebApp/.idea
