@@ -74,8 +74,3 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-
-
-
-
-java -jar CloudNativeWebApp-0.0.1-SNAPSHOT.jar
