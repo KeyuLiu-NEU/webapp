@@ -18,28 +18,26 @@
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:upstream" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
     </expand>
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8873dcf8-db88-424d-9988-893cea9a504a" name="Default Changelist" comment="" />
+    <list default="true" id="8873dcf8-db88-424d-9988-893cea9a504a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/cloud/CloudNativeWebApp/CloudNativeWebAppApplicationTests.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3" />
+        <option name="mavenHome" value="$USER_HOME$/.m2/wrapper/dists/apache-maven-3.6.3-bin/1iopthnavndlasol9gbrbg6bf2/apache-maven-3.6.3" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -66,7 +64,43 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.CloudNativeWebAppApplicationTests">
+    <configuration name="CloudNativeWebAppApplicationTests" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="CloudNativeWebApp" />
+      <useClassPathOnly />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cloud.CloudNativeWebApp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.cloud.CloudNativeWebApp" />
+      <option name="MAIN_CLASS_NAME" value="com.cloud.CloudNativeWebApp.CloudNativeWebAppApplicationTests" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="PARAMETERS" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceTest" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="CloudNativeWebApp" />
+      <useClassPathOnly />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cloud.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.cloud.service" />
+      <option name="MAIN_CLASS_NAME" value="com.cloud.service.UserServiceTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="PARAMETERS" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CloudNativeWebAppApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="CloudNativeWebApp" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.cloud.CloudNativeWebAppApplication" />
@@ -89,6 +123,8 @@
       <workItem from="1602693780326" duration="5517000" />
       <workItem from="1602785382429" duration="1026000" />
       <workItem from="1602816280054" duration="864000" />
+      <workItem from="1603205509152" duration="895000" />
+      <workItem from="1603239567027" duration="1000" />
     </task>
     <servers />
   </component>
@@ -108,22 +144,22 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1663" height="275" key="GridCell.Tab.0.bottom" timestamp="1602716546816">
+    <state width="1663" height="275" key="GridCell.Tab.0.bottom" timestamp="1603239556326">
       <screen x="0" y="23" width="2560" height="1337" />
     </state>
-    <state width="1663" height="275" key="GridCell.Tab.0.bottom/0.23.2560.1337@0.23.2560.1337" timestamp="1602716546816" />
-    <state width="1663" height="275" key="GridCell.Tab.0.center" timestamp="1602716546815">
+    <state width="1663" height="275" key="GridCell.Tab.0.bottom/0.23.2560.1337@0.23.2560.1337" timestamp="1603239556326" />
+    <state width="1663" height="275" key="GridCell.Tab.0.center" timestamp="1603239556325">
       <screen x="0" y="23" width="2560" height="1337" />
     </state>
-    <state width="1663" height="275" key="GridCell.Tab.0.center/0.23.2560.1337@0.23.2560.1337" timestamp="1602716546815" />
-    <state width="1663" height="275" key="GridCell.Tab.0.left" timestamp="1602716546814">
+    <state width="1663" height="275" key="GridCell.Tab.0.center/0.23.2560.1337@0.23.2560.1337" timestamp="1603239556325" />
+    <state width="1663" height="275" key="GridCell.Tab.0.left" timestamp="1603239556325">
       <screen x="0" y="23" width="2560" height="1337" />
     </state>
-    <state width="1663" height="275" key="GridCell.Tab.0.left/0.23.2560.1337@0.23.2560.1337" timestamp="1602716546814" />
-    <state width="1663" height="275" key="GridCell.Tab.0.right" timestamp="1602716546815">
+    <state width="1663" height="275" key="GridCell.Tab.0.left/0.23.2560.1337@0.23.2560.1337" timestamp="1603239556325" />
+    <state width="1663" height="275" key="GridCell.Tab.0.right" timestamp="1603239556326">
       <screen x="0" y="23" width="2560" height="1337" />
     </state>
-    <state width="1663" height="275" key="GridCell.Tab.0.right/0.23.2560.1337@0.23.2560.1337" timestamp="1602716546815" />
+    <state width="1663" height="275" key="GridCell.Tab.0.right/0.23.2560.1337@0.23.2560.1337" timestamp="1603239556326" />
     <state width="1663" height="275" key="GridCell.Tab.1.bottom" timestamp="1602716546818">
       <screen x="0" y="23" width="2560" height="1337" />
     </state>
