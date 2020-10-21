@@ -18,18 +18,13 @@
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:upstream" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
     </expand>
     <select />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8873dcf8-db88-424d-9988-893cea9a504a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/cloud/CloudNativeWebApp/CloudNativeWebAppApplicationTests.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,17 +65,6 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RunManager" selected="JUnit.CloudNativeWebAppApplicationTests">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="CloudNativeWebAppApplicationTests" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="CloudNativeWebApp" />
       <useClassPathOnly />
@@ -139,7 +123,8 @@
       <workItem from="1602693780326" duration="5517000" />
       <workItem from="1602785382429" duration="1026000" />
       <workItem from="1602816280054" duration="864000" />
-      <workItem from="1603205509152" duration="66000" />
+      <workItem from="1603205509152" duration="895000" />
+      <workItem from="1603239567027" duration="1000" />
     </task>
     <servers />
   </component>
@@ -159,22 +144,22 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1663" height="275" key="GridCell.Tab.0.bottom" timestamp="1603205566502">
+    <state width="1663" height="275" key="GridCell.Tab.0.bottom" timestamp="1603239556326">
       <screen x="0" y="23" width="2560" height="1337" />
     </state>
-    <state width="1663" height="275" key="GridCell.Tab.0.bottom/0.23.2560.1337@0.23.2560.1337" timestamp="1603205566502" />
-    <state width="1663" height="275" key="GridCell.Tab.0.center" timestamp="1603205566502">
+    <state width="1663" height="275" key="GridCell.Tab.0.bottom/0.23.2560.1337@0.23.2560.1337" timestamp="1603239556326" />
+    <state width="1663" height="275" key="GridCell.Tab.0.center" timestamp="1603239556325">
       <screen x="0" y="23" width="2560" height="1337" />
     </state>
-    <state width="1663" height="275" key="GridCell.Tab.0.center/0.23.2560.1337@0.23.2560.1337" timestamp="1603205566502" />
-    <state width="1663" height="275" key="GridCell.Tab.0.left" timestamp="1603205566501">
+    <state width="1663" height="275" key="GridCell.Tab.0.center/0.23.2560.1337@0.23.2560.1337" timestamp="1603239556325" />
+    <state width="1663" height="275" key="GridCell.Tab.0.left" timestamp="1603239556325">
       <screen x="0" y="23" width="2560" height="1337" />
     </state>
-    <state width="1663" height="275" key="GridCell.Tab.0.left/0.23.2560.1337@0.23.2560.1337" timestamp="1603205566501" />
-    <state width="1663" height="275" key="GridCell.Tab.0.right" timestamp="1603205566502">
+    <state width="1663" height="275" key="GridCell.Tab.0.left/0.23.2560.1337@0.23.2560.1337" timestamp="1603239556325" />
+    <state width="1663" height="275" key="GridCell.Tab.0.right" timestamp="1603239556326">
       <screen x="0" y="23" width="2560" height="1337" />
     </state>
-    <state width="1663" height="275" key="GridCell.Tab.0.right/0.23.2560.1337@0.23.2560.1337" timestamp="1603205566502" />
+    <state width="1663" height="275" key="GridCell.Tab.0.right/0.23.2560.1337@0.23.2560.1337" timestamp="1603239556326" />
     <state width="1663" height="275" key="GridCell.Tab.1.bottom" timestamp="1602716546818">
       <screen x="0" y="23" width="2560" height="1337" />
     </state>
