@@ -28,6 +28,8 @@
         
         - name: Build Deployment Artifact
           run: |
+            pwd
+            ls -al
             mkdir codedeploy_artifact
             zip -r ${{ env.ARTIFACT_NAME }} CloudNativeWebapp/target/CloudNativeWebApp-0.0.1-SNAPSHOT.jar codedeploy/*.sh appspec.yml
             pwd
