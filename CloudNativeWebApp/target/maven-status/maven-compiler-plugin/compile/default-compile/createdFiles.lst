@@ -13,12 +13,16 @@ com/cloud/domain/userInfo_noPwd.class
 com/cloud/domain/Question.class
 com/cloud/domain/AnswerRepository.class
 com/cloud/service/CustomAuthenticationProvider.class
+com/cloud/domain/FileInfo.class
 com/cloud/service/UserDetailsImpl.class
 com/cloud/domain/AnswerText.class
+com/cloud/domain/FileInfoRepository.class
 com/cloud/domain/CategoryInfo.class
 com/cloud/domain/UserAccount_v2.class
 com/cloud/service/SecurityServiceImpl.class
+com/cloud/config/dataSourceConfig.class
 com/cloud/domain/AnswerInfo.class
+com/cloud/service/FileStorageService.class
 com/cloud/exceptions/MyFileNotFoundException.class
 com/cloud/config/FileStorageProperties.class
 com/cloud/service/UserService.class
