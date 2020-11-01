@@ -8,9 +8,9 @@ files:
 hooks:
   ApplicationStop:
    - location: ./scripts/StopApplication.sh
-     timeout: 180
+     timeout: 120
      runas: ubuntu
   ApplicationStart:
    - location: ./scripts/StartApplication.sh
-     timeout: 180
+     timeout: 120
      runas: ubuntu
