@@ -1,10 +1,9 @@
 name: pull request check workflow
   
 on:
-  pull_request:
+  push:
     branches:
     - main
-    - master
 
 jobs:
   pr-check:

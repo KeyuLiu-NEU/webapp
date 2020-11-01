@@ -23,9 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8873dcf8-db88-424d-9988-893cea9a504a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../codedeploy/CreatProfile.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../codedeploy/CreatProfile.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.github/workflows/pull-request-check.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../.github/workflows/pull-request-check.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +147,7 @@
       <workItem from="1604268575820" duration="18000" />
       <workItem from="1604336776628" duration="598000" />
       <workItem from="1604505038140" duration="20989000" />
-      <workItem from="1604783447103" duration="1146000" />
+      <workItem from="1604783447103" duration="1492000" />
     </task>
     <servers />
   </component>
