@@ -23,6 +23,8 @@ public class Question {
     private List<CategoryInfo> categories;
     @OneToMany
     private List<AnswerInfo> answers;
+    @OneToMany(cascade = {CascadeType.ALL})
+    private List<FileInfo> attachment;
 
 //    private void addCategories(String string){
 //        this.getCategories().add(string);

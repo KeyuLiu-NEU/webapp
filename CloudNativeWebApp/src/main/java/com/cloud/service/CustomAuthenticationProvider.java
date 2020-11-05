@@ -2,6 +2,7 @@ package com.cloud.service;
 
 import com.cloud.domain.UserAccount;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -15,8 +16,13 @@ import java.util.ArrayList;
 public class CustomAuthenticationProvider implements AuthenticationProvider {
     @Autowired
     private UserService userService;
-    @Autowired
+
     private BCryptPasswordEncoder bCryptPasswordEncoder;
+    @Bean
+    public BCryptPasswordEncoder bCryptPasswordEncoder() {
+        bCryptPasswordEncoder=new BCryptPasswordEncoder();
+        return new BCryptPasswordEncoder();
+    }
     @Override
     public Authentication authenticate(Authentication authentication)
             throws AuthenticationException {

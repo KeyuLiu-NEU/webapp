@@ -9,12 +9,13 @@ import org.springframework.boot.configurationprocessor.json.JSONObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import com.cloud.domain.*;
 
+import java.sql.Array;
 import java.sql.Timestamp;
 import java.util.*;
 
@@ -38,9 +39,12 @@ public class CustomerController {
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
     @Autowired
-    private SecurityServiceImpl securityService;
-    @Autowired
     private CategoryRepository categoryRepository;
+    @Autowired
+    private FileStorageService fileStorageService;
+    @Autowired
+    private FileInfoRepository fileInfoRepository;
+
     @PostMapping(path="/v1/user",produces = "application/json") // Map ONLY POST Requests
     @ResponseStatus(value = HttpStatus.CREATED)
     public ResponseEntity createUser (@RequestBody userInfo info ) {
@@ -297,6 +301,76 @@ public class CustomerController {
 
         return new ResponseEntity(question,HttpStatus.valueOf(200));
     }
+
+    @PostMapping(path="/v1/question/{id}/file",produces = "application/json") // Map ONLY POST Requests
+    private ResponseEntity attachFile(@RequestParam("file") MultipartFile file,@PathVariable String id){
+        Authentication authentication =
+                SecurityContextHolder.getContext().getAuthentication();
+        //System.out.println(authentication.getName());
+        if(authentication.getName().equals("anonymousUser")) return new ResponseEntity(HttpStatus.valueOf(401));
+
+        UserAccount user=userService.findByEmail(authentication.getName());
+
+        Question question;
+        try {
+            question = questionRepository.findById(id).get();
+            if(!question.getUserId().equals(user.getId())){
+                return new ResponseEntity(HttpStatus.NOT_FOUND);
+            }
+
+        }
+        catch (Exception e){
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        }
+
+        System.out.println(file.getContentType());
+        String contentType= file.getContentType();
+        if(!contentType.equals("application/pdf")&&!contentType.equals("image/png")
+                && !contentType.equals("image/jpg") && !contentType.equals("image/jpeg")){
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        }
+        List<FileInfo> attachment;
+        attachment = new ArrayList<>();
+        if(question.getAttachment()!=null||!question.getAttachment().equals(""))
+            attachment = question.getAttachment();
+        FileInfo fileInfo = fileStorageService.storeFile(file,user.getId(),question.getId());
+        attachment.add(fileInfo);
+        question.setAttachment(attachment);
+        questionRepository.save(question);
+        return new ResponseEntity(fileInfo,HttpStatus.valueOf(201));
+    }
+
+    @DeleteMapping(path="/v1/question/{questionId}/file/{fileId}",produces = "application/json")
+    private ResponseEntity deleteFile(@PathVariable String questionId, @PathVariable String fileId, HttpServletRequest request){
+        Authentication authentication =
+                SecurityContextHolder.getContext().getAuthentication();
+        //System.out.println(authentication.getName());
+        if(authentication.getName().equals("anonymousUser")) return new ResponseEntity(HttpStatus.valueOf(401));
+
+        try{
+            UserAccount user=userService.findByEmail(authentication.getName());
+            Optional<Question> question=questionRepository.findById(questionId);
+            if(!question.get().getUserId().equals(user.getId())){
+                return new ResponseEntity(HttpStatus.valueOf(404));
+            }
+            Optional<FileInfo> fileInfo=fileInfoRepository.findById(fileId);
+            fileStorageService.deleteFromS3(fileInfo.get());
+            question.get().setAttachment(null);
+            questionRepository.save(question.get());
+            fileInfoRepository.delete(fileInfo.get());
+            // Load file as Resource
+            //Resource resource = fileStorageService.loadFileAsResource(fileInfo.get().getFile_name());
+
+            // Try to determine file's content type
+
+            return new ResponseEntity(HttpStatus.NO_CONTENT);
+        }catch (Exception ex){
+            return new ResponseEntity(HttpStatus.valueOf(404));
+        }
+
+    }
+
+
 //    private boolean QuestionInfoCheck(@RequestBody QuestionInfo info) {
 //        if (info.getCategories() == null) {
 //            System.out.println("QuestionInfoCheck failed 1");
@@ -346,6 +420,7 @@ public class CustomerController {
             answerInfo.setUserid(user.getId());
             answerInfo.setAnswer_text(answerText.getAnswer_text());
             question.getAnswers().add(answerInfo);
+
 
 
             answerRepository.save(answerInfo);
@@ -432,6 +507,87 @@ public class CustomerController {
             question.setAnswers(old);
             questionRepository.save(question);
             answerRepository.save(answerInfo.get());
+
+            return new ResponseEntity(HttpStatus.NO_CONTENT);
+        }catch (Exception ex){
+            return new ResponseEntity(HttpStatus.valueOf(404));
+        }
+
+    }
+
+    @PostMapping(path="/v1/question/{question_id}/answer/{answer_id}/file/{file_id}",produces = "application/json") // Map ONLY POST Requests
+    private ResponseEntity attachFile(@RequestParam("file") MultipartFile file, @PathVariable String question_id, @PathVariable String answer_id, @PathVariable String file_id){
+        Authentication authentication =
+                SecurityContextHolder.getContext().getAuthentication();
+        //System.out.println(authentication.getName());
+        if(authentication.getName().equals("anonymousUser")) return new ResponseEntity(HttpStatus.valueOf(401));
+
+        UserAccount user=userService.findByEmail(authentication.getName());
+
+        Question question;
+        AnswerInfo answer;
+        try {
+            question = questionRepository.findById(question_id).get();
+            if(!question.getUserId().equals(user.getId())){
+                return new ResponseEntity(HttpStatus.NOT_FOUND);
+            }
+            answer = answerRepository.findById(answer_id).get();
+            if(!answer.getQuestion_id().equals(question.getId())){
+                return new ResponseEntity(HttpStatus.NOT_FOUND);
+
+
+            }
+
+        }
+        catch (Exception e){
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        }
+
+        if(question.getAttachment()!=null){
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        }
+        System.out.println(file.getContentType());
+        String contentType= file.getContentType();
+        if(!contentType.equals("application/pdf")&&!contentType.equals("image/png")
+                && !contentType.equals("image/jpg") && !contentType.equals("image/jpeg")){
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        }
+        FileInfo fileInfo = fileStorageService.storeFile(file,user.getId(),answer.getId());
+        List<FileInfo> attachment;
+        attachment = new ArrayList<>();
+        if(question.getAttachment()!=null||!question.getAttachment().equals(""))
+            attachment = question.getAttachment();
+        attachment.add(fileInfo);
+        answer.setAttachment(attachment);
+        answerRepository.save(answer);
+        return new ResponseEntity(fileInfo,HttpStatus.valueOf(201));
+    }
+
+    @DeleteMapping(path="/v1/question/{questionId}/answer/{answerId}/file/{file_id}",produces = "application/json")
+    private ResponseEntity deleteFile(@PathVariable String questionId, @PathVariable String answerId, @PathVariable String file_id, HttpServletRequest request){
+        Authentication authentication =
+                SecurityContextHolder.getContext().getAuthentication();
+        //System.out.println(authentication.getName());
+        if(authentication.getName().equals("anonymousUser")) return new ResponseEntity(HttpStatus.valueOf(401));
+
+        try{
+            UserAccount user=userService.findByEmail(authentication.getName());
+            Optional<Question> question=questionRepository.findById(questionId);
+            if(!question.get().getUserId().equals(user.getId())){
+                return new ResponseEntity(HttpStatus.valueOf(404));
+            }
+            Optional<FileInfo> fileInfo=fileInfoRepository.findById(file_id);
+            if(!fileInfo.get().equals(question.get().getAttachment())){
+                return new ResponseEntity(HttpStatus.valueOf(404));
+            }
+            fileStorageService.deleteFromS3(fileInfo.get());
+            question.get().setAttachment(null);
+            questionRepository.save(question.get());
+            fileInfoRepository.delete(fileInfo.get());
+            // Load file as Resource
+            //Resource resource = fileStorageService.loadFileAsResource(fileInfo.get().getFile_name());
+
+            // Try to determine file's content type
 
             return new ResponseEntity(HttpStatus.NO_CONTENT);
         }catch (Exception ex){
