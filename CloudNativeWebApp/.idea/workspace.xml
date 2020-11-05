@@ -24,12 +24,39 @@
   <component name="ChangeListManager">
     <list default="true" id="8873dcf8-db88-424d-9988-893cea9a504a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/cloud/CloudNativeWebApp/CloudNativeWebAppApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CloudNativeWebApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CloudNativeWebApp.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cloud/CloudNativeWebAppApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cloud/CloudNativeWebAppApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cloud/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cloud/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cloud/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cloud/controller/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cloud/domain/AnswerInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cloud/domain/AnswerInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cloud/domain/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cloud/domain/Question.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cloud/service/CustomAuthenticationProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cloud/service/CustomAuthenticationProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cloud/CloudNativeWebAppApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cloud/CloudNativeWebAppApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cloud/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cloud/config/SecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cloud/controller/CustomerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cloud/controller/CustomerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cloud/domain/AnswerInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cloud/domain/AnswerInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cloud/domain/Question.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cloud/domain/Question.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cloud/service/CustomAuthenticationProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cloud/service/CustomAuthenticationProvider.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/cloud/CloudNativeWebApp/CloudNativeWebAppApplicationTests.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -42,7 +69,9 @@
     </option>
   </component>
   <component name="ProjectId" id="1iko9ruiwhc3QZZkK7KVComreku" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -55,7 +84,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/cloud/domain" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -64,7 +93,26 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
-  <component name="RunManager" selected="JUnit.CloudNativeWebAppApplicationTests">
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.cloud.service" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/cloud/domain" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.CloudNativeWebAppApplication">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CloudNativeWebAppApplicationTests" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="CloudNativeWebApp" />
       <useClassPathOnly />
@@ -125,6 +173,11 @@
       <workItem from="1602816280054" duration="864000" />
       <workItem from="1603205509152" duration="895000" />
       <workItem from="1603239567027" duration="1000" />
+      <workItem from="1603323896406" duration="968000" />
+      <workItem from="1603332622349" duration="1172000" />
+      <workItem from="1604268575820" duration="18000" />
+      <workItem from="1604336776628" duration="598000" />
+      <workItem from="1604505038140" duration="20989000" />
     </task>
     <servers />
   </component>
@@ -144,38 +197,58 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1663" height="275" key="GridCell.Tab.0.bottom" timestamp="1603239556326">
+    <state width="1826" height="282" key="GridCell.Tab.0.bottom" timestamp="1604554846821">
       <screen x="0" y="23" width="2560" height="1337" />
     </state>
-    <state width="1663" height="275" key="GridCell.Tab.0.bottom/0.23.2560.1337@0.23.2560.1337" timestamp="1603239556326" />
-    <state width="1663" height="275" key="GridCell.Tab.0.center" timestamp="1603239556325">
+    <state width="1826" height="282" key="GridCell.Tab.0.bottom/0.23.2560.1337@0.23.2560.1337" timestamp="1604554846821" />
+    <state width="1826" height="282" key="GridCell.Tab.0.center" timestamp="1604554846821">
       <screen x="0" y="23" width="2560" height="1337" />
     </state>
-    <state width="1663" height="275" key="GridCell.Tab.0.center/0.23.2560.1337@0.23.2560.1337" timestamp="1603239556325" />
-    <state width="1663" height="275" key="GridCell.Tab.0.left" timestamp="1603239556325">
+    <state width="1826" height="282" key="GridCell.Tab.0.center/0.23.2560.1337@0.23.2560.1337" timestamp="1604554846821" />
+    <state width="1826" height="282" key="GridCell.Tab.0.left" timestamp="1604554846821">
       <screen x="0" y="23" width="2560" height="1337" />
     </state>
-    <state width="1663" height="275" key="GridCell.Tab.0.left/0.23.2560.1337@0.23.2560.1337" timestamp="1603239556325" />
-    <state width="1663" height="275" key="GridCell.Tab.0.right" timestamp="1603239556326">
+    <state width="1826" height="282" key="GridCell.Tab.0.left/0.23.2560.1337@0.23.2560.1337" timestamp="1604554846821" />
+    <state width="1826" height="282" key="GridCell.Tab.0.right" timestamp="1604554846821">
       <screen x="0" y="23" width="2560" height="1337" />
     </state>
-    <state width="1663" height="275" key="GridCell.Tab.0.right/0.23.2560.1337@0.23.2560.1337" timestamp="1603239556326" />
-    <state width="1663" height="275" key="GridCell.Tab.1.bottom" timestamp="1602716546818">
+    <state width="1826" height="282" key="GridCell.Tab.0.right/0.23.2560.1337@0.23.2560.1337" timestamp="1604554846821" />
+    <state width="1826" height="282" key="GridCell.Tab.1.bottom" timestamp="1604530262916">
       <screen x="0" y="23" width="2560" height="1337" />
     </state>
-    <state width="1663" height="275" key="GridCell.Tab.1.bottom/0.23.2560.1337@0.23.2560.1337" timestamp="1602716546818" />
-    <state width="1663" height="275" key="GridCell.Tab.1.center" timestamp="1602716546817">
+    <state width="1826" height="282" key="GridCell.Tab.1.bottom/0.23.2560.1337@0.23.2560.1337" timestamp="1604530262916" />
+    <state width="1826" height="282" key="GridCell.Tab.1.center" timestamp="1604530262915">
       <screen x="0" y="23" width="2560" height="1337" />
     </state>
-    <state width="1663" height="275" key="GridCell.Tab.1.center/0.23.2560.1337@0.23.2560.1337" timestamp="1602716546817" />
-    <state width="1663" height="275" key="GridCell.Tab.1.left" timestamp="1602716546816">
+    <state width="1826" height="282" key="GridCell.Tab.1.center/0.23.2560.1337@0.23.2560.1337" timestamp="1604530262915" />
+    <state width="1826" height="282" key="GridCell.Tab.1.left" timestamp="1604530262915">
       <screen x="0" y="23" width="2560" height="1337" />
     </state>
-    <state width="1663" height="275" key="GridCell.Tab.1.left/0.23.2560.1337@0.23.2560.1337" timestamp="1602716546816" />
-    <state width="1663" height="275" key="GridCell.Tab.1.right" timestamp="1602716546817">
+    <state width="1826" height="282" key="GridCell.Tab.1.left/0.23.2560.1337@0.23.2560.1337" timestamp="1604530262915" />
+    <state width="1826" height="282" key="GridCell.Tab.1.right" timestamp="1604530262915">
       <screen x="0" y="23" width="2560" height="1337" />
     </state>
-    <state width="1663" height="275" key="GridCell.Tab.1.right/0.23.2560.1337@0.23.2560.1337" timestamp="1602716546817" />
+    <state width="1826" height="282" key="GridCell.Tab.1.right/0.23.2560.1337@0.23.2560.1337" timestamp="1604530262915" />
+    <state width="1663" height="505" key="GridCell.Tab.2.bottom" timestamp="1603332615233">
+      <screen x="0" y="23" width="2560" height="1337" />
+    </state>
+    <state width="1663" height="505" key="GridCell.Tab.2.bottom/0.23.2560.1337@0.23.2560.1337" timestamp="1603332615233" />
+    <state width="1663" height="505" key="GridCell.Tab.2.center" timestamp="1603332615232">
+      <screen x="0" y="23" width="2560" height="1337" />
+    </state>
+    <state width="1663" height="505" key="GridCell.Tab.2.center/0.23.2560.1337@0.23.2560.1337" timestamp="1603332615232" />
+    <state width="1663" height="505" key="GridCell.Tab.2.left" timestamp="1603332615232">
+      <screen x="0" y="23" width="2560" height="1337" />
+    </state>
+    <state width="1663" height="505" key="GridCell.Tab.2.left/0.23.2560.1337@0.23.2560.1337" timestamp="1603332615232" />
+    <state width="1663" height="505" key="GridCell.Tab.2.right" timestamp="1603332615233">
+      <screen x="0" y="23" width="2560" height="1337" />
+    </state>
+    <state width="1663" height="505" key="GridCell.Tab.2.right/0.23.2560.1337@0.23.2560.1337" timestamp="1603332615233" />
+    <state x="1532" y="298" key="Maven.ArtifactSearchDialog" timestamp="1604506159123">
+      <screen x="0" y="23" width="2560" height="1337" />
+    </state>
+    <state x="1532" y="298" key="Maven.ArtifactSearchDialog/0.23.2560.1337@0.23.2560.1337" timestamp="1604506159123" />
     <state x="680" y="460" key="SettingsEditor" timestamp="1602816493019">
       <screen x="0" y="23" width="2560" height="1337" />
     </state>
