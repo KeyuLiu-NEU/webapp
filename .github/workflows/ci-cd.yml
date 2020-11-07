@@ -5,8 +5,10 @@
       CODEDEPLOY_APPLICATION_DEPLOYMENT_GROUP_NAME: csye6225-webapp-deployment
       AWS_REGION: us-east-1
     on:
-      push:
-        branches: [ master ]
+      pull_request:
+        branches:
+        - main
+        - master
     jobs:
       ci_cd:
         runs-on: ubuntu-latest
