@@ -1,7 +1,7 @@
 #!/bin/bash
 { echo "${aws_access_key}";
   echo "${aws_secret_key}";
-  echo "us-east-2";
+  echo "us-east-1";
   echo "text"
 } |aws configure
 #expect "AWS Access Key ID [None]:"
