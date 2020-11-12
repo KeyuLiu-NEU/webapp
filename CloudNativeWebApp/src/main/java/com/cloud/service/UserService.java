@@ -11,7 +11,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
+import com.timgroup.statsd.StatsDClient;
 import org.passay.CharacterRule;
 import org.passay.EnglishCharacterData;
 import org.passay.LengthRule;
@@ -38,6 +38,15 @@ public class UserService implements UserDetailsService {
 
 
     public UserAccount saveWithEncoder(UserAccount userAccount) {
+//        Long startTime=System.nanoTime();
+//        try {
+//            return userRepository.save(userAccount);
+//        }finally {
+//            long endTime = System.nanoTime();
+//            long duration = (endTime - startTime);
+//            statsDClient.recordExecutionTime("userSaveQuery", duration / 1000000);
+//        }
+
 
         userAccount.setPassword(bCryptPasswordEncoder.encode(userAccount.getPassword()));
         return userRepository.save(userAccount);

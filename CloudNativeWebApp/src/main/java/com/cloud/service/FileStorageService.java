@@ -17,6 +17,7 @@ import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.*;
 import software.amazon.awssdk.sync.RequestBody;
+import com.timgroup.statsd.StatsDClient;
 
 import java.io.File;
 import java.io.IOException;
@@ -39,7 +40,8 @@ public class FileStorageService {
     private final Path fileStorageLocation;
     @Autowired
     private FileInfoRepository fileInfoRepository;
-
+//    @Autowired
+//    private StatsDClient statsDClient;
     public static Region region;
     public static String S3_BUCKET_NAME;
     @Autowired
@@ -99,6 +101,24 @@ public class FileStorageService {
             fileInfo.setLastAccessTime(view.lastAccessTime().toString());
             fileInfo.setLastModifiedTime(view.lastModifiedTime().toString());
             fileInfo.setSize(view.size());
+
+//            Long startTime=System.nanoTime();
+//            fileInfoRepository.save(fileInfo);
+//            long endTime = System.nanoTime();
+//            long duration = (endTime - startTime);
+//            statsDClient.recordExecutionTime("fileInfoSaveQuery", duration / 1000000);
+//
+//            String key=fileInfo.getId();
+//
+//            startTime=System.nanoTime();
+//            client.putObject(PutObjectRequest.builder().bucket(S3_BUCKET_NAME).key(key)
+//                    .build(), RequestBody.of(file.getBytes()));
+//            endTime = System.nanoTime();
+//            duration = (endTime - startTime);
+//            statsDClient.recordExecutionTime("s3putObject", duration / 1000000);
+//
+//            fileInfo.setUrl("https://"+S3_BUCKET_NAME+".s3.amazonaws.com/"+key);
+
             fileInfoRepository.save(fileInfo);
             String key=fileInfo.getId();
             client.putObject(PutObjectRequest.builder().bucket(S3_BUCKET_NAME).key(key)
@@ -114,6 +134,15 @@ public class FileStorageService {
         }
 
     }
+//    public void deleteFromS3(FileInfo fileInfo){
+//
+//        Long startTime=System.nanoTime();
+//        client.deleteObject(DeleteObjectRequest.builder().bucket(S3_BUCKET_NAME).key(fileInfo.getId()).build());
+//        long endTime = System.nanoTime();
+//        long duration = (endTime - startTime);
+//        statsDClient.recordExecutionTime("s3deleteObject", duration / 1000000);
+//    }
+
     public void deleteFromS3(FileInfo fileInfo){
 
         client.deleteObject(DeleteObjectRequest.builder().bucket(S3_BUCKET_NAME).key(fileInfo.getId()).build());
